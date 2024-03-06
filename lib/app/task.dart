@@ -9,7 +9,6 @@ class Task extends StatefulWidget {
   State<Task> createState() => _TaskState();
 }
 
-//responsavel pela mudanca do estado
 class _TaskState extends State<Task> {
   var nivel = 10;
   @override
@@ -49,7 +48,6 @@ class _TaskState extends State<Task> {
                         onPressed: () {
                           setState(() {
                             nivel += 1;
-                            print(nivel);
                           });
                         },
                         child: Icon(Icons.arrow_drop_up))
@@ -57,14 +55,14 @@ class _TaskState extends State<Task> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const Icon(Icons.star_outline),
                     Text(
                       'Nivel: $nivel',
-                      style: TextStyle(color: Colors.amberAccent),
+                      style: const TextStyle(color: Colors.amberAccent),
                     ),
                   ],
                 ),
