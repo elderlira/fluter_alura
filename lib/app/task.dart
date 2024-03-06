@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
@@ -10,7 +12,7 @@ class Task extends StatefulWidget {
 }
 
 class _TaskState extends State<Task> {
-  var nivel = 10;
+  var nivel = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,12 +47,38 @@ class _TaskState extends State<Task> {
                       ),
                     ),
                     ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                            shadowColor: Colors.black),
                         onPressed: () {
                           setState(() {
-                            nivel += 1;
+                            if (nivel < 20) {
+                              nivel += 1;
+                            }
                           });
                         },
-                        child: Icon(Icons.arrow_drop_up))
+                        child: const SizedBox(
+                          height: 50,
+                          width: 20,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.arrow_drop_up,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'UP',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white),
+                              )
+                            ],
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -59,10 +87,13 @@ class _TaskState extends State<Task> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Icon(Icons.star_outline),
+                    SizedBox(
+                        width: 180,
+                        child: LinearProgressIndicator(
+                            color: Colors.amber, value: nivel / 20)),
                     Text(
                       'Nivel: $nivel',
-                      style: const TextStyle(color: Colors.amberAccent),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),
