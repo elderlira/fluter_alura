@@ -31,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String way = 'assets/images';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,12 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         scrollDirection: Axis.vertical,
         reverse: true,
-        children: const [
-          Task("tarefa 1"),
-          Task('tarefa 2'),
-          Task('tarefa 3'),
-          Task('tarefa 4'),
-          Task('tarefa 5')
+        children: [
+          Task("Task 1", '$way/mascote.png'),
+          Task('Task 2', '$way/meditar.jpeg'),
+          Task('Task 3', '$way/livro.jpeg'),
+          Task('Task 4', '$way/jogar.jpeg'),
         ],
       ),
     );
