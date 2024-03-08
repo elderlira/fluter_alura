@@ -44,10 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
         scrollDirection: Axis.vertical,
         reverse: true,
         children: [
-          Task("Task 1", '$way/mascote.png'),
-          Task('Task 2', '$way/meditar.jpeg'),
-          Task('Task 3', '$way/livro.jpeg'),
-          Task('Task 4', '$way/jogar.jpeg'),
+          Task("Task 1", '$way/mascote.png', 4),
+          Task('Task 2', '$way/meditar.jpeg', 3),
+          Task('Task 3', '$way/livro.jpeg', 5),
+          Task('Task 4', '$way/jogar.jpeg', 2),
         ],
       ),
     );
