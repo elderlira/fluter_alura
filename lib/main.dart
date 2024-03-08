@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Task("Task 1", '$way/mascote.png', 4),
           Task('Task 2', '$way/meditar.jpeg', 3),
           Task('Task 3', '$way/livro.jpeg', 5),
-          Task('Task 4', '$way/jogar.jpeg', 2),
+          Task('Task 4', '$way/jogar.jpeg', 1),
         ],
       ),
     );
