@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class Task extends StatefulWidget {
   final String nome;
   final String foto;
-  const Task(this.nome, this.foto, {super.key});
+  final int dificuldade;
+  const Task(this.nome, this.foto, this.dificuldade, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
@@ -30,22 +31,64 @@ class _TaskState extends State<Task> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      color: Colors.black12,
                       width: 100,
                       height: 100,
-                      child: Image.asset(
-                        widget.foto,
-                        fit: BoxFit.cover,
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10.0, bottom: 8.0),
+                        child: Image.asset(
+                          widget.foto,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     SizedBox(
                       width: 180,
-                      child: Text(
-                        widget.nome,
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            overflow: TextOverflow.ellipsis),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.nome,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.star,
+                                  size: 20,
+                                  color: widget.dificuldade >= 1
+                                      ? Colors.amber
+                                      : Colors.amber[100]),
+                              Icon(Icons.star,
+                                  size: 20,
+                                  color: widget.dificuldade >= 2
+                                      ? Colors.amber
+                                      : Colors.amber[100]),
+                              Icon(Icons.star,
+                                  size: 20,
+                                  color: widget.dificuldade >= 3
+                                      ? Colors.amber
+                                      : Colors.amber[100]),
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: widget.dificuldade >= 4
+                                    ? Colors.amber
+                                    : Colors.amber[100],
+                              ),
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: widget.dificuldade >= 5
+                                    ? Colors.amber
+                                    : Colors.amber[100],
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                     ElevatedButton(
