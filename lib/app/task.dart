@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
   final String nome;
-
-  const Task(this.nome, {super.key});
+  final String foto;
+  const Task(this.nome, this.foto, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
@@ -33,6 +33,10 @@ class _TaskState extends State<Task> {
                       color: Colors.black12,
                       width: 100,
                       height: 100,
+                      child: Image.asset(
+                        widget.foto,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     SizedBox(
                       width: 180,
