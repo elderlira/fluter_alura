@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
@@ -16,7 +14,7 @@ class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Stack(
         children: [
           Container(
@@ -49,7 +47,7 @@ class _TaskState extends State<Task> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blueAccent,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.zero,
                             ),
                             shadowColor: Colors.black),
