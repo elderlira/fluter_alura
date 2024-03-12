@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:alura_curso/app/task.dart';
-import 'package:alura_curso/store/buttonStore.dart';
-import 'package:provider/provider.dart';
+// import 'package:alura_curso/store/buttonStore.dart';
+// import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => ButtonStore(), child: const MyApp()));
+  runApp(
+      // ChangeNotifierProvider(
+      //   create: (context) => ButtonStore(), child:
+      const MyApp());
 }
 
 class MyApp extends StatelessWidget {
