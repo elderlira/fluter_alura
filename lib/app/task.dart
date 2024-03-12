@@ -1,3 +1,4 @@
+import 'package:alura_curso/difficulty.dart';
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
@@ -64,39 +65,7 @@ class _TaskState extends State<Task> {
                                 fontWeight: FontWeight.bold,
                                 overflow: TextOverflow.ellipsis),
                           ),
-                          Row(
-                            children: [
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: widget.dificuldade >= 1
-                                      ? Colors.amber
-                                      : Colors.amber[100]),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: widget.dificuldade >= 2
-                                      ? Colors.amber
-                                      : Colors.amber[100]),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: widget.dificuldade >= 3
-                                      ? Colors.amber
-                                      : Colors.amber[100]),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: widget.dificuldade >= 4
-                                    ? Colors.amber
-                                    : Colors.amber[100],
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: widget.dificuldade >= 5
-                                    ? Colors.amber
-                                    : Colors.amber[100],
-                              ),
-                            ],
-                          )
+                          Difficulty(difficultyLevel: widget.dificuldade)
                         ],
                       ),
                     ),
