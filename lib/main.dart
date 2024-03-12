@@ -1,7 +1,5 @@
+import 'package:alura_curso/initialScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:alura_curso/app/task.dart';
-// import 'package:alura_curso/store/buttonStore.dart';
-// import 'package:provider/provider.dart';
 
 void main() {
   runApp(
@@ -37,39 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String way = 'assets/images';
-  bool opacity = true;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: AnimatedOpacity(
-        duration: const Duration(milliseconds: 2000),
-        opacity: opacity ? 1 : 0,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          reverse: true,
-          children: [
-            Task("Task 1", '$way/mascote.png', 4),
-            Task('Task 2', '$way/meditar.jpeg', 3),
-            Task('Task 3', '$way/livro.jpeg', 5),
-            Task('Task 4', '$way/jogar.jpeg', 1),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {
-          (setState(() {
-            print(opacity);
-            opacity != opacity;
-            print(opacity);
-          }))
-        },
-        child: const Icon(Icons.add),
-      ),
-    );
+    return const InitialScreen();
   }
 }
