@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String way = 'assets/images';
-
+  bool opacity = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: AnimatedOpacity(
         duration: const Duration(milliseconds: 2000),
-        opacity: 1,
+        opacity: opacity ? 1 : 0,
         child: ListView(
           scrollDirection: Axis.vertical,
           reverse: true,
@@ -59,7 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {print('clicado')},
+        onPressed: () => {
+          (setState(() {
+            print(opacity);
+            opacity != opacity;
+            print(opacity);
+          }))
+        },
         child: const Icon(Icons.add),
       ),
     );
