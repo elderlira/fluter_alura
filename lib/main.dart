@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:alura_curso/app/task.dart';
+import 'package:alura_curso/store/buttonStore.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => ButtonStore(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -41,15 +44,23 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        reverse: true,
-        children: [
-          Task("Task 1", '$way/mascote.png', 4),
-          Task('Task 2', '$way/meditar.jpeg', 3),
-          Task('Task 3', '$way/livro.jpeg', 5),
-          Task('Task 4', '$way/jogar.jpeg', 1),
-        ],
+      body: AnimatedOpacity(
+        duration: const Duration(milliseconds: 2000),
+        opacity: 1,
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          reverse: true,
+          children: [
+            Task("Task 1", '$way/mascote.png', 4),
+            Task('Task 2', '$way/meditar.jpeg', 3),
+            Task('Task 3', '$way/livro.jpeg', 5),
+            Task('Task 4', '$way/jogar.jpeg', 1),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {print('clicado')},
+        child: const Icon(Icons.add),
       ),
     );
   }
